@@ -114,7 +114,7 @@ body {
 }
 
 .hero {
-  background-image: url("/src/img/bcg-hero-change.jpg");
+  background-image: url("./src/img/bcg-hero-change.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
