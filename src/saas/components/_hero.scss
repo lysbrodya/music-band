@@ -1,5 +1,5 @@
 .hero {
-  background-image: url("../../img/bcg-hero-change.jpg");
+  background-image: url("/music-band/src/img/bcg-hero-change.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -48,24 +48,7 @@
     color: rgb(38, 220, 220);
   }
 }
-// .hero__btn {
-//   font-size: 14px;
-//   font-weight: 600;
-//   line-height: 1.2;
-//   letter-spacing: 0.2em;
-//   padding: 12px 8px;
-//   width: fit-content;
-//   border-radius: 10px;
-//   border: 1px solid gold;
-//   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-//   background-color: rgb(255, 235, 19);
 
-//   @media (max-width: 767px) {
-//     padding: 10px 8px;
-//     border-radius: 8px;
-//     margin: auto;
-//   }
-// }
 .hero__btn {
   font-size: 14px;
   font-weight: 700;
