@@ -1,0 +1,112 @@
+.sosial-list,
+.address {
+  display: flex;
+  gap: 10px;
+  font-style: normal;
+}
+.sosial-item:not(:first-child)::before,
+.address-item:not(:first-child)::before {
+  content: "•";
+  font-size: 10px; // размер точки
+  margin-right: 8px; // расстояние до текста
+  color: grey;
+}
+.footer__container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+.sosial-list,
+.footer__article {
+  color: darkgray;
+  margin-bottom: 14px;
+}
+// .sosial-item a {
+//   position: relative;
+//   color: white;
+//   text-decoration: none;
+//   transition: color 0.3s ease;
+// }
+
+// .sosial-item a::after {
+//   content: "";
+//   position: absolute;
+//   left: 0;
+//   bottom: -4px;
+//   width: 0;
+//   height: 1px;
+//   background: white;
+//   transition: width 0.3s ease;
+// }
+// .sosial-item a:hover {
+//   color: #f5c542;
+// }
+
+// .sosial-item a:hover::after {
+//   width: 100%;
+// }
+// .....................................................
+
+.sosial-item a,
+.address-item a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.sosial-item a:hover,
+.address-item a:hover {
+  color: #f5c542;
+  transform: translateY(-3px);
+  text-shadow: 0 0 8px rgba(245, 197, 66, 0.6);
+}
+// .............................................,
+// .sosial-item a {
+//   padding: 6px 10px;
+//   border-radius: 6px;
+//   color: white;
+//   text-decoration: none;
+//   transition: all 0.3s ease;
+// }
+
+// .sosial-item a:hover {
+//   background: rgba(255, 255, 255, 0.08);
+//   backdrop-filter: blur(6px);
+//   transform: translateY(-2px);
+// }
+// ....................................................
+// .sosial-item a {
+//   position: relative;
+//   color: white;
+//   text-decoration: none;
+//   padding-top: 6px;
+//   transition: color 0.3s ease;
+// }
+
+// .sosial-item a::before {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 50%;
+//   width: 0;
+//   height: 2px;
+//   background: #f5c542;
+//   transition: all 0.3s ease;
+//   transform: translateX(-50%);
+// }
+
+// .sosial-item a:hover {
+//   color: #f5c542;
+// }
+
+// .sosial-item a:hover::before {
+//   width: 100%;
+// }
+.sosial-item a:focus {
+  outline: 2px solid #f5c542;
+  outline-offset: 4px;
+}

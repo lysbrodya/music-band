@@ -1,0 +1,28 @@
+//   color: var(--color-text);
+//   font-family: var(--main-font);
+//   font-weight: 400;
+//   font-size: 14px;
+//   line-height: 1.15;
+//   letter-spacing: 0.03em;
+body {
+  font-family:
+    "Inter",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  background-color: #02060f;
+  color: aliceblue;
+  max-width: 1600px;
+}
+.section__title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 34px;
+  @media (max-width: 479px) {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+}

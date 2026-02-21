@@ -1,0 +1,29 @@
+.history {
+  background: linear-gradient(135deg, #0b1220 0%, #111a2e 40%, #2a1a2e 100%);
+}
+// .history__title-foto {
+//   @media (min-width: 780px) {
+//     display: flex;
+//     align-items: flex-start;
+//   }
+// }
+.history__article {
+  margin-bottom: 10px;
+}
+.history__title-foto img {
+  width: 100%;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .history__title-foto img {
+    float: right;
+    margin: 0 0 20px 40px;
+  }
+}
+.history__title-foto::after {
+  // content: "";
+  display: block;
+  clear: both;
+}
