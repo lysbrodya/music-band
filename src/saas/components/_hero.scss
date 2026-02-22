@@ -1,5 +1,26 @@
 .hero {
-  background-image: url("/music-band/src/img/bcg-hero-change.jpg");
+  background-image: url("../img/bcg-hero-1400.jpg");
+  background-image: image-set(
+    url("../img/bcg-hero-1400.avif") type("image/avif"),
+    url("../img/bcg-hero-1400.webp") type("image/webp"),
+    url("../img/bcg-hero-1400.jpg") type("image/jpg")
+  );
+  @media (max-width: 768px) {
+    background-image: url("../img/bcg-hero-768.jpg");
+    background-image: image-set(
+      url("../img/bcg-hero-768.avif") type("image/avif"),
+      url("../img/bcg-hero-768.webp") type("image/webp"),
+      url("../img/bcg-hero-768.jpg") type("image/jpg")
+    );
+  }
+  @media (max-width: 480px) {
+    background-image: url("../img/bcg-hero-480.jpg");
+    background-image: image-set(
+      url("../img/bcg-hero-480.avif") type("image/avif"),
+      url("../img/bcg-hero-480.webp") type("image/webp"),
+      url("../img/bcg-hero-480.jpg") type("image/jpg")
+    );
+  }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

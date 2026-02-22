@@ -1,7 +1,6 @@
 html {
   box-sizing: border-box;
 }
-
 *,
 *::before,
 *::after {
@@ -41,4 +40,12 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover {
+  -webkit-box-shadow: 0 0 0 1000px #0b1220 inset !important;
+  -webkit-text-fill-color: rgb(174, 212, 200) !important;
+  transition: background-color 9999s ease-in-out 0s;
 }

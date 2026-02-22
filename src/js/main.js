@@ -1,56 +1,107 @@
 (() => {
   const refs = {
-    openModalBtn: document.querySelector("[data-modal-open]"),
+    openModalBtns: document.querySelectorAll("[data-modal-open]"),
     closeModalBtn: document.querySelector("[data-modal-close]"),
     modal: document.querySelector("[data-modal]"),
-    openMenuBtn: document.querySelector(".mobile-menu-button"),
-    menu: document.querySelector(".mobile-menu"),
-    closeMenuBtn: document.querySelector(".mobile-menu-close-button"),
+    concertInfo: document.querySelector(".modal-concert-info"),
   };
 
-  refs.openModalBtn.addEventListener("click", toggleModal);
-  refs.closeModalBtn.addEventListener("click", toggleModal);
+  refs.openModalBtns.forEach((btn) => {
+    btn.addEventListener("click", onOpenModal);
+  });
+
+  refs.closeModalBtn.addEventListener("click", closeModal);
   refs.modal.addEventListener("click", onBackdropClick);
-  refs.openMenuBtn.addEventListener("click", toggleMenu);
-  refs.closeMenuBtn.addEventListener("click", toggleMenu);
-  function toggleMenu() {
-    refs.menu.classList.toggle("is-hidden");
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !refs.modal.classList.contains("is-hidden")) {
+      closeModal();
+    }
+  });
+  function onOpenModal(event) {
+    const button = event.currentTarget;
+
+    // 🔥 находим строку
+    const row = button.closest("tr");
+
+    // 🔥 берём ячейки
+    const cells = row.querySelectorAll("td");
+
+    const place = cells[0].textContent.trim();
+    const date = cells[2].textContent.trim();
+
+    // 🔥 вставляем текст
+    refs.concertInfo.innerHTML = `
+  <span class="modal-title">
+    Замовити квиток на концерт <br> «Грим та Грім»
+  </span>
+  <br>
+  <span class="modal-place">${place}</span>
+  <br>
+  <span class="modal-date">${date}</span>
+`;
+    openModal();
   }
-  function toggleModal() {
-    refs.modal.classList.toggle("is-hidden");
+
+  function openModal() {
+    refs.modal.classList.remove("is-hidden");
+    document.body.classList.add("modal-open");
   }
+
+  function closeModal() {
+    refs.modal.classList.add("is-hidden");
+    document.body.classList.remove("modal-open");
+  }
+  // function toggleModal() {
+  //   refs.modal.classList.toggle("is-hidden");
+  // }
+
   function onBackdropClick(event) {
-    // если кликнули именно по бекдропу, а не по модалке
     if (event.target === event.currentTarget) {
       toggleModal();
     }
   }
 })();
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-// import './style.css'
-// import javascriptLogo from "./javascript.svg";
-// import viteLogo from "/vite.svg";
-// import { setupCounter } from "./counter.js";
+AOS.init();
 
-// document.querySelector("#app").innerHTML = `
-//   <div>
-//     <a href="https://vite.dev" target="_blank">
-//       <img src="${viteLogo}" class="logo" alt="Vite logo" />
-//     </a>
-//     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-//       <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-//     </a>
-//     <h1>Hello Vite!</h1>
-//     <div class="card">
-//       <button id="counter" type="button"></button>
-//     </div>
-//     <p class="read-the-docs">
-//       Click on the Vite logo to learn more
-//     </p>
-//   </div>
-// `;
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(".nav__link");
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute("id");
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+
+          if (link.getAttribute("href") === `#${id}`) {
+            link.classList.add("active");
+          }
+        });
+      }
+    });
+  },
+  {
+    threshold: 0.6, // сколько секции должно быть видно
+  },
+);
+// КОД ДЛЯ ПРОВЕРКИ ШИРИНЫ ЭЛЕМЕНТА В КОНСОЛИ
+// sections.forEach((section) => {
+//   observer.observe(section);
+// });
+// [...document.querySelectorAll("*")].forEach((el) => {
+//   if (el.offsetWidth > document.documentElement.clientWidth) {
+//     console.log(el);
+//   }
+// });
+// ........................
 
 // setupCounter(document.querySelector("#counter"));
+
 // function accum(s) {
 //   // your code
 //   const ar = s.split("");
@@ -107,19 +158,43 @@
 // }
 // console.log(findUniq([1, 1, 1, 1, 1, 2]));
 // windowWight;
-function solution(string) {
-  let arrStr = string.split("");
-  let arr = string.toUpperCase().split("");
-  let el = "";
-  for (let index = 0; index < arrStr.length; index++) {
-    if (arrStr[index] !== arr[index]) {
-      el += arrStr[index];
-    } else {
-      el += " " + arrStr[index];
-    }
-  }
-  return el;
-}
-console.log(solution("camelCasing"));
+// function solution(string) {
+//   let arrStr = string.split("");
+//   let arr = string.toUpperCase().split("");
+//   let el = "";
+//   for (let index = 0; index < arrStr.length; index++) {
+//     if (arrStr[index] !== arr[index]) {
+//       el += arrStr[index];
+//     } else {
+//       el += " " + arrStr[index];
+//     }
+//   }
+//   return el;
+// }
+// console.log(solution("camelCasing"));
 
-solution("camelCasing");
+// solution("camelCasing");
+
+// ЗАМЕНИТЬ ОДИНОЧНЫЕ СИМВОЛЫ В СТРОКЕ НА ( А ПОВТОРЯЮЩИЕСЯ НА )
+// МОЁ РЕШЕНИЕ
+// function duplicateEncode(word) {
+//   let arr = [];
+//   let w = word.toLowerCase();
+//   for (const element of word.toLowerCase()) {
+//     w.replace(element, "").includes(element) ? arr.push(")") : arr.push("(");
+//     // console.log(w);
+//     // console.log(word.includes(element));
+//   }
+//   return arr.join("");
+// }
+// console.log(duplicateEncode("Dind"));
+//  КЛАССНОЕ РЕШЕНИЕ,,,,,,,,,,,,,,,,,,решение с ластиндекс,,,,,,,,,,,,,,
+// function duplicateEncode(word){
+//   return word
+//     .toLowerCase()
+//     .split('')
+//     .map( function (a, i, w) {
+//       return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'
+//     })
+//     .join('');
+// }
