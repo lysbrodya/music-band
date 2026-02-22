@@ -119,11 +119,31 @@ section {
   justify-content: space-between;
   gap: 10px;
 }
+@media (max-width: 768px) {
+  .nav__list {
+    padding: 10px 0;
+  }
+}
+@media (max-width: 479px) {
+  .nav__list {
+    padding: 5px 0;
+  }
+}
 
 .logo {
   padding: 20px 0;
   font-size: 12px;
   font-weight: 800;
+}
+@media (max-width: 479px) {
+  .logo {
+    padding: 5px 0;
+  }
+}
+@media (max-width: 768px) {
+  .logo {
+    padding: 10px 0;
+  }
 }
 
 .nav__link {
@@ -589,10 +609,11 @@ body.modal-open {
 
 .modal {
   position: absolute;
+  z-index: 1100;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 450px;
+  width: 100%;
   background: linear-gradient(135deg, #0b1220 0%, #111a2e 40%, #2a1a2e 100%);
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px 0px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.2) 0px 2px 1px 0px;
@@ -603,9 +624,9 @@ body.modal-open {
   width: fit-content;
   margin: auto;
 }
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 450px) {
   .modal {
-    width: 528px;
+    max-width: 450px;
   }
 }
 .modal .form-input {
